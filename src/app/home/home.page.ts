@@ -2,6 +2,8 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { YoutubePlayerWeb } from 'capacitor-youtube-player';
 
+import { Plugins, Capacitor } from '@capacitor/core';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -20,7 +22,11 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.initializeYoutubePlayerPluginWeb();
+    if (Capacitor.platform === 'web') {
+      this.initializeYoutubePlayerPluginWeb();
+    } else { // Native
+      this.initializeYoutubePlayerPluginNative();
+    }
   }
 
   async initializeYoutubePlayerPluginWeb() {
@@ -34,6 +40,14 @@ export class HomePage implements OnInit, AfterViewInit {
     console.log('HomePage::destroyYoutubePlayerPluginWeb() | method called');
     const result = await YoutubePlayerWeb.destroy('youtube-player');
     console.log('destroyYoutubePlayer', result);
+  }
+
+  async initializeYoutubePlayerPluginNative() {
+
+    const { YoutubePlayer } = Plugins;
+
+    const options = {width: 640, height: 360, videoId: 'tDW2C6rcH6M'};
+    const playerReady = await YoutubePlayer.initialize(options);
   }
 
 }

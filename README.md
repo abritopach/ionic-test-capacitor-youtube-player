@@ -2,6 +2,19 @@
 
 Sample Ionic project to test Capacitor Youtube Player Plugin.
 
+#### App WEB example
+
+![Plugin](readme_resources/plugin_ionic_web.gif "Plugin")
+
+#### App iOS example
+
+![Plugin](readme_resources/plugin_ionic_ios.gif "Plugin")
+
+#### App Android example
+
+![Plugin](readme_resources/plugin_ionic_android.gif "Plugin")
+
+
 ## Running
 
 Before you go through this example, you should have at least a basic understanding of Ionic concepts. You must also already have Ionic installed on your machine.

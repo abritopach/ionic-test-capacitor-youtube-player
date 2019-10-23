@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 
+import {NtkmeButtonModule} from '@ctrl/ngx-github-buttons';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    NtkmeButtonModule
   ],
   declarations: [HomePage]
 })

@@ -2,12 +2,11 @@ package com.example.app;
 
 import android.os.Bundle;
 
+import com.abpjap.plugin.youtubeplayer.YoutubePlayer;
 import com.getcapacitor.BridgeActivity;
 import com.getcapacitor.Plugin;
 
 import java.util.ArrayList;
-
-import com.abpjap.plugin.youtubeplayer.YoutubePlayer;
 
 public class MainActivity extends BridgeActivity {
   @Override

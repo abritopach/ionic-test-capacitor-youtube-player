@@ -1,0 +1,7 @@
+{
+  "appId": "com.example.app",
+  "appName": "ionic-test-capacitor-youtube-player",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

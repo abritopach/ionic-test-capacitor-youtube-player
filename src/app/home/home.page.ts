@@ -34,6 +34,14 @@ export class HomePage implements OnInit, AfterViewInit {
     const options = {playerId: 'youtube-player', playerSize: {width: 640, height: 360}, videoId: 'tDW2C6rcH6M'};
     const result = await YoutubePlayerWeb.initialize(options);
     console.log('playerReady', result);
+
+    (result as any).player.addEventListener('onPlaybackQualityChange', (event) => {
+      console.log('playback quality is', event);
+    });
+
+    (result as any).player.addEventListener('onStateChange', (event) => {
+      console.log('state is', event);
+    });
   }
 
   async destroyYoutubePlayerPluginWeb() {

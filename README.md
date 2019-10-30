@@ -72,7 +72,7 @@ public class MainActivity extends BridgeActivity {
 }
 ```
 
-In the official [Capacitor documentation]("https://capacitor.ionicframework.com/docs/plugins/android#export-to-capacitor") appears how to register the plugin.
+In the official [Capacitor documentation](https://capacitor.ionicframework.com/docs/plugins/android#export-to-capacitor) appears how to register the plugin.
 
 
 ### Ionic / Angular project

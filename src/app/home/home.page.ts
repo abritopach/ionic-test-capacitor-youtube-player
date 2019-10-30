@@ -42,6 +42,10 @@ export class HomePage implements OnInit, AfterViewInit {
     (result as any).player.addEventListener('onStateChange', (event) => {
       console.log('state is', event);
     });
+
+    const options1 = {playerId: 'youtube-player1', playerSize: {width: 640, height: 360}, videoId: 'M1F81V-NhP0'};
+    const result1 = await YoutubePlayerWeb.initialize(options1);
+    console.log('playerReady', result1);
   }
 
   async destroyYoutubePlayerPluginWeb() {

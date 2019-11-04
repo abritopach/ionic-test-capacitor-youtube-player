@@ -54,6 +54,12 @@ export class HomePage implements OnInit, AfterViewInit {
     console.log('destroyYoutubePlayer', result);
   }
 
+  async getAllPlayersStatePluginWeb() {
+    console.log('HomePage::getAllPlayersStatePluginWeb() | method called');
+    const result = await YoutubePlayerWeb.getAllPlayersState();
+    console.log('allPlayersState', result);
+  }
+
   async initializeYoutubePlayerPluginNative() {
 
     const { YoutubePlayer } = Plugins;

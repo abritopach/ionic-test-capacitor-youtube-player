@@ -31,7 +31,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
   async initializeYoutubePlayerPluginWeb() {
     console.log('HomePage::initializeYoutubePlayerPluginWeb() | method called');
-    const options = {playerId: 'youtube-player', playerSize: {width: 640, height: 360}, videoId: 'tDW2C6rcH6M'};
+    const options = {playerId: 'youtube-player', playerSize: {width: 640, height: 360}, videoId: 'tDW2C6rcH6M', debug: true};
     const result = await YoutubePlayerWeb.initialize(options);
     console.log('playerReady', result);
 
@@ -54,10 +54,10 @@ export class HomePage implements OnInit, AfterViewInit {
     console.log('destroyYoutubePlayer', result);
   }
 
-  async getAllPlayersStatePluginWeb() {
-    console.log('HomePage::getAllPlayersStatePluginWeb() | method called');
-    const result = await YoutubePlayerWeb.getAllPlayersState();
-    console.log('allPlayersState', result);
+  async getPlayersEventsStatePluginWeb() {
+    console.log('HomePage::getPlayersEventsStatePluginWeb() | method called');
+    const result = await YoutubePlayerWeb.getAllPlayersEventsState();
+    console.log('allPlayersEventsState', result);
   }
 
   async initializeYoutubePlayerPluginNative() {

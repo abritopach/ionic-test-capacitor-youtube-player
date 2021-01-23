@@ -1,0 +1,6 @@
+[
+	{
+		"pkg": "capacitor-youtube-player",
+		"classpath": "com.abpjap.plugin.youtubeplayer.YoutubePlayer"
+	}
+]

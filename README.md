@@ -36,15 +36,47 @@ ionic serve
 
 ## Using Capacitor Youtube Player Plugin
 
-### IMPORTANT NOTE iOS:
+### IMPORTANT NOTE ANDROID (CAPACITOR 3.0)
 
-Currently there is a small error when you testing the plugin in iOS. The following line of code needs to be modified in xcode:
+If you get this error in ANDROID STUDIO
 
-YouTubePlayer.swift:339:102: 'UIWebViewNavigationType' has been renamed to 'UIWebView.NavigationType'
+![Error](readme_resources/android-error.jpg "Error")
 
-### IMPORTANT NOTE ANDROID
+To use the CAPACITOR YOUTUBE PLAYER plugin you need to add the YOUTUBE API KEY in the file local.properties.
 
-You have to register Youtube Player plugin's class in your Acitivity so Capacitor is aware of it.
+```bash
+YOUTUBE_API_KEY="YOUR_YOUTUBE_API_KEY"
+```
+
+If you don't have a local.properties file, create one.
+By default, this file is in the .gitignore. If not add it so that your keys are not visible to anyone.
+
+You have to register the Youtube Player plugin's class in your Activity so Capacitor is aware of it.
+
+```bash
+package com.example.app;
+
+import android.os.Bundle;
+
+import com.abpjap.plugin.youtubeplayer.YoutubePlayer;
+import com.getcapacitor.BridgeActivity;
+import com.getcapacitor.Plugin;
+
+import java.util.ArrayList;
+
+public class MainActivity extends BridgeActivity {
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    registerPlugin(YoutubePlayer.class); <= ADD THIS LINE
+  }
+}
+```
+
+In the official [Capacitor documentation](https://capacitorjs.com/docs/v3/updating/3-0#android) you have the instructions to migrate to version 3.0.
+
+### IMPORTANT NOTE ANDROID (CAPACITOR 2.0)
 
 ```bash
 package com.example.app;
@@ -74,6 +106,15 @@ public class MainActivity extends BridgeActivity {
 
 In the official [Capacitor documentation](https://capacitor.ionicframework.com/docs/plugins/android#export-to-capacitor) appears how to register the plugin.
 
+### IMPORTANT NOTE iOS (CAPACITOR 3.0)
+
+In the official [Capacitor documentation](https://capacitorjs.com/docs/v3/updating/3-0#ios) you have the instructions to migrate to version 3.0.
+
+### IMPORTANT NOTE iOS (CAPACITOR 2.0)
+
+Currently there is a small error when you testing the plugin in iOS. The following line of code needs to be modified in xcode:
+
+YouTubePlayer.swift:339:102: 'UIWebViewNavigationType' has been renamed to 'UIWebView.NavigationType'
 
 ### Ionic / Angular project
 

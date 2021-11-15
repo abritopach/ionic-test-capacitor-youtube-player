@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
-import { YoutubePlayerWeb } from 'capacitor-youtube-player';
+import { YoutubePlayer } from 'capacitor-youtube-player';
 
-import { Plugins, Capacitor } from '@capacitor/core';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (Capacitor.platform === 'web') {
+    if (Capacitor.getPlatform() === 'web') {
       this.initializeYoutubePlayerPluginWeb();
     } else { // Native
       this.initializeYoutubePlayerPluginNative();
@@ -32,7 +32,7 @@ export class HomePage implements OnInit, AfterViewInit {
   async initializeYoutubePlayerPluginWeb() {
     console.log('HomePage::initializeYoutubePlayerPluginWeb() | method called');
     const options = {playerId: 'youtube-player', playerSize: {width: 640, height: 360}, videoId: 'tDW2C6rcH6M', debug: true};
-    const result = await YoutubePlayerWeb.initialize(options);
+    const result = await YoutubePlayer.initialize(options);
     console.log('playerReady', result);
 
     (result as any).player.addEventListener('onPlaybackQualityChange', (event) => {
@@ -44,28 +44,26 @@ export class HomePage implements OnInit, AfterViewInit {
     });
 
     const options1 = {playerId: 'youtube-player1', playerSize: {width: 640, height: 360}, videoId: 'M1F81V-NhP0'};
-    const result1 = await YoutubePlayerWeb.initialize(options1);
+    const result1 = await YoutubePlayer.initialize(options1);
     console.log('playerReady', result1);
   }
 
   async destroyYoutubePlayerPluginWeb() {
     console.log('HomePage::destroyYoutubePlayerPluginWeb() | method called');
-    const result = await YoutubePlayerWeb.destroy('youtube-player');
+    const result = await YoutubePlayer.destroy('youtube-player');
     console.log('destroyYoutubePlayer', result);
   }
 
   async getPlayersEventsStatePluginWeb() {
     console.log('HomePage::getPlayersEventsStatePluginWeb() | method called');
-    const result = await YoutubePlayerWeb.getAllPlayersEventsState();
+    const result = await YoutubePlayer.getAllPlayersEventsState();
     console.log('allPlayersEventsState', result);
   }
 
   async initializeYoutubePlayerPluginNative() {
 
-    const { YoutubePlayer } = Plugins;
-
     const options = {width: 640, height: 360, videoId: 'tDW2C6rcH6M'};
-    const playerReady = await YoutubePlayer.initialize(options);
+    // const playerReady = await YoutubePlayer.initialize(options);
   }
 
 }
